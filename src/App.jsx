@@ -183,30 +183,35 @@ function App() {
             <h2 className="text-xl font-semibold">
               How many stars would you give them before HR gets involved?
             </h2>
-            {[
-              "skills",
-              "availability",
-              "communication",
-              "quality",
-              "deadlines",
-              "cooperation",
-            ].map((category) => (
-              <div key={category} className="space-y-2">
-                <label className="block text-sm font-medium text-gray-700">
-                  {category.charAt(0).toUpperCase() + category.slice(1)}:
-                </label>
-                <StarRating
-                  rating={formData[category]}
-                  onRatingChange={(value) =>
-                    handleRatingChange(category, value)
-                  }
-                />
-              </div>
-            ))}
+            <div className="grid grid-cols-1 gap-4">
+              {[
+                "skills",
+                "availability",
+                "communication",
+                "quality",
+                "deadlines",
+                "cooperation",
+              ].map((category) => (
+                <div
+                  key={category}
+                  className="grid grid-cols-2 items-center gap-4"
+                >
+                  <label className="text-sm font-medium text-gray-700">
+                    {category.charAt(0).toUpperCase() + category.slice(1)}:
+                  </label>
+                  <StarRating
+                    rating={formData[category]}
+                    onRatingChange={(value) =>
+                      handleRatingChange(category, value)
+                    }
+                  />
+                </div>
+              ))}
+            </div>
 
-            <div className="space-y-2">
-              <label className="block text-sm font-medium text-gray-700">
-                The final rating:
+            <div className="grid grid-cols-2 gap-4">
+              <label className="text-sm font-medium text-gray-700">
+                Final rating:
               </label>
               <input
                 type="text"
