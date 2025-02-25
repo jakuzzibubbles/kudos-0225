@@ -111,7 +111,7 @@ function App() {
             </div>
             <div className="space-y-2">
               <label className="block text-sm font-medium text-gray-700">
-                What is your role?
+                What's your role?
               </label>
               <input
                 type="text"
@@ -206,7 +206,7 @@ function App() {
 
             <div className="space-y-2">
               <label className="block text-sm font-medium text-gray-700">
-                This is your final rating:
+                The final rating:
               </label>
               <input
                 type="text"
