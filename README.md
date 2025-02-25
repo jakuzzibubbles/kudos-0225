@@ -33,17 +33,11 @@ This repository contains the frontend code for Kudos, an review app built with t
 - [ ] Handles errors and displays alerts to the user.
 ---
 ## Deployment on Vercel
-**Install Vercel CLI**
-- Install the Vercel CLI globally:
+- [ ] Install Vercel CLI**
   ```bash
   npm install -g vercel
   ```
-**Deploy the app**
-- Navigate to the `kudos-front` folder:
-  ```bash
-  cd kudos-front
-  ```
-- To deploy run:
+- [ ] Deploy the app**
   ```bash
   vercel
   ```
