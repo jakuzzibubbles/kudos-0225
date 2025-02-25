@@ -58,7 +58,7 @@ function App() {
         formData
       );
       alert(response.data.message);
-      setFinalRating(response.data.finalRating);
+      setFinalRating(`${response.data.finalRating.toFixed(1)}/5`);
     } catch (err) {
       console.error(err);
       alert("Error submitting review");
@@ -74,6 +74,18 @@ function App() {
       deadlines,
       cooperation,
     } = formData;
+
+    if (
+      skills === 0 ||
+      availability === 0 ||
+      communication === 0 ||
+      quality === 0 ||
+      deadlines === 0 ||
+      cooperation === 0
+    ) {
+      return "";
+    }
+
     const total =
       parseInt(skills) +
       parseInt(availability) +
@@ -83,7 +95,7 @@ function App() {
       parseInt(cooperation);
 
     const average = total / 6;
-    return average.toFixed(1);
+    return `${average.toFixed(1)}/5`;
   };
 
   return (
@@ -218,6 +230,7 @@ function App() {
                 value={calculateRatingSum()}
                 readOnly
                 className="w-full px-3 py-2"
+                
               />
             </div>
 
