@@ -50,15 +50,15 @@ This repository contains the frontend code for **Kudos**, an review app built wi
 ## Folder structure
 ```
 frontend/
-├── public/            # Static assets (e.g., favicon)
+├── public/          
 ├── src/
-│   ├── App.jsx        # Main React component
-│   ├── main.jsx       # Entry point for the app
-│   ├── index.css      # Tailwind CSS imports
-├── .gitignore         # Files to ignore in Git
-├── package.json       # Project dependencies and scripts
-├── vite.config.js     # Vite configuration
-├── README.md          # Project documentation
+│   ├── App.jsx 
+│   ├── main.jsx    
+│   ├── index.css     
+├── .gitignore        
+├── package.json     
+├── vite.config.js    
+├── README.md      
 ```
 ---
 ## Contributing
