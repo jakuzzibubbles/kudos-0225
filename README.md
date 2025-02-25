@@ -66,4 +66,3 @@ Contributions are welcome! If youâ€™re new to coding like me, let's collaborateð
 - [Tailwind CSS](https://tailwindcss.com/) for the utility-first CSS framework.
 - [React](https://reactjs.org/) for the frontend library.
 - [Vercel](https://vercel.com/) for seamless deployment.
----
