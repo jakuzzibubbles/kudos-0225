@@ -1,5 +1,5 @@
 # Kudos - frontend documentation
-This repository contains the frontend code for Kudos, an review app built with the MERN stack. The frontend (React, Vite, and Tailwind CSS) allows users to submit reviews with ratings     across six categories and displays the final calculated rating.
+This repository contains the frontend code for Kudos, an review app built with the MERN stack. The frontend (React, Vite, and Tailwind CSS) allows users to submit reviews with ratings     across six categories. More features along the way 🙂
 ---
 ## Table of contents
 1. [How the Code Works](#how-the-code-works)
