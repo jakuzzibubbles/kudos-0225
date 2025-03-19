@@ -19,12 +19,32 @@ This repository contains the frontend code for Kudos, an review app built with t
 ### 3. **Styling with Tailwind CSS**
 - [x] The app uses **Tailwind CSS** for styling, which provides utility classes for rapid UI development.
 - [ ] Components are styled directly in the JSX using Tailwind classes, making the code clean and easy to maintain.
+### 4. **User Authentication**
+- [ ] Users can log in or create an account.
+- [ ] After logging in, users are redirected to the dashboard.
+### 5. **Dashboard**
+- [ ] Users can see their received reviews.
+- [ ] Users can send reviews to employers.
 ---
 ## Key components
 ### 1. **App component (`src/App.jsx`)**
-- [x] The main component that renders the review form.
-- [x] Manages form state using React’s `useState` hook.
-- [x] Handles form submission and displays the final rating.
+- [x] The main component that handles routing and redirects.
+### 2. **Login component (`src/pages/Auth/Login.jsx`)**
+- [x] Handles user login and redirects to the dashboard.
+### 3. **Dashboard component (`src/pages/Auth/Home/Dashboard.jsx`)**
+- [x] Displays received reviews and provides a form to send reviews.
+### 4. **ReviewList component (`src/components/ReviewList.jsx`)**
+- [x] Displays a list of received reviews.
+### 5. **SendReviewForm component (`src/components/SendReviewForm.jsx`)**
+- [x] Provides a form to send reviews to employers.
+### 6. **FormInput component (`src/components/FormInput.jsx`)**
+- [x] Reusable input component for form fields.
+### 7. **StarRating component (`src/components/StarRating.jsx`)**
+- [x] Reusable component for star rating input.
+### 8. **FormSection component (`src/components/FormSection.jsx`)**
+- [x] Reusable component for form sections.
+### 9. **useFormData hook (`src/hooks/useFormData.js`)**
+- [x] Custom hook to manage form data and handle changes.
 ### 2. **Tailwind CSS (`src/index.css`)**
 - [x] Imports Tailwind’s base, components, and utilities for styling.
 - [ ] Ensures consistent and responsive design across devices.
@@ -46,13 +66,26 @@ This repository contains the frontend code for Kudos, an review app built with t
 frontend/
 ├── public/          
 ├── src/
+│   ├── components/
+│   │   ├── FormInput.jsx
+│   │   ├── FormSection.jsx
+│   │   ├── ReviewList.jsx
+│   │   ├── SendReviewForm.jsx
+│   │   ├── StarRating.jsx
+│   ├── hooks/
+│   │   ├── useFormData.js
+│   ├── pages/
+│   │   ├── Auth/
+│   │   │   ├── Home/
+│   │   │   │   ├── Dashboard.jsx
+│   │   │   ├── Login.jsx
 │   ├── App.jsx 
 │   ├── main.jsx    
 │   ├── index.css     
 ├── .gitignore        
-├── package.json     
-├── vite.config.js    
-├── README.md      
+├── [package.json](http://_vscodecontentref_/1)     
+├── [vite.config.js](http://_vscodecontentref_/2)    
+├── [README.md](http://_vscodecontentref_/3)         
 ```
 ---
 ## Contributing
