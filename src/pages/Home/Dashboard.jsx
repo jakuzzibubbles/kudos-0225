@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import ReviewList from '../../../components/ReviewList';
-import SendReviewForm from '../../../components/SendReviewForm';
+import ReviewList from '../../components/ReviewList';
+import SendReviewForm from '../../components/SendReviewForm';
 
 const Dashboard = () => {
   const [reviews, setReviews] = useState([]);

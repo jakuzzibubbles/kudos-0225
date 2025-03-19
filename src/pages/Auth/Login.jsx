@@ -1,116 +1,65 @@
-import React from "react";
-import { useState } from "react";
-import PasswordInput from "../../components/Input/PasswordInput";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { validateEmail } from "../../utils/helper";
-import axiosInstance from "../../utils/axiosInstance";
+import axios from "axios";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-
   const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!validateEmail(email)) {
-      setError("Please enter a valid email address.");
-      return;
-    }
-
-    if (!password) {
-      setError("Please enter the password.");
-      return;
-    }
-
-    setError("");
-
-    // Login API
     try {
-      const response = await axiosInstance.post("/login", {
-        email: email,
-        password: password,
-      });
-
-      // Handle successful login response
-      if (response.data && response.data.accessToken) {
-        localStorage.setItem("token", response.data.accessToken);
-        navigate("/dashboard");
-      }
-    } catch (error) {
-      // Handle login error
-      if (
-        error.response &&
-        error.response.data &&
-        error.response.data.messsage
-      ) {
-        setError(error.response.messsage);
-      } else {
-        setError("An unexpected error occured. Please try again.");
-      }
+      const response = await axios.post(
+        "http://localhost:5000/api/auth/login",
+        { email, password }
+      );
+    
+      localStorage.setItem("token", response.data.token);
+      navigate("/dashboard");
+    } catch (err) {
+      console.error(err);
+      alert("Login failed");
     }
   };
 
   return (
-    <div className="h-screen bg-cyan-100 overflow-hidden relative">
-      <div className="login-ui-box right-10 -top-40" />
-      <div className="login-ui-box bg-cyan-300 -bottom-40 right-1/2" />
-
-      <div className="container h-screen flex items-center justify-center px-20 mx-auto">
-        <div className="w-2/4 h-[90vh] flex items-end bg-login-bg-img bg-cover bg-center rounded-lg p-10 z-50">
-          <div>
-            <h4 className="text-5xl text-black font-semibold leading-[58px]">
-              Capture Your <br /> Journeys
-            </h4>
-            <p className="text-[15px] text-black leading-6 pr-7 mt-4">
-              Record your travel experiences and memories in your personal
-              travel journal.
-            </p>
-          </div>
-        </div>
-
-        <div className="w-2/4 h-[75vh] bg-white rounded-r-lg relative p-16 shadow-lg shadow-cyan-200/20">
-          <form onSubmit={handleLogin}>
-            <h4 className="text-2xl font-semibold mb-7">Login</h4>
-
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+      <div className="max-w-md w-full bg-white p-6 rounded-lg shadow-lg">
+        <h1 className="text-3xl font-bold text-center mb-6">Login</h1>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="space-y-2">
+            <label className="block text-sm font-medium text-gray-700">
+              Email
+            </label>
             <input
-              type="text"
-              placeholder="Email"
-              className="input-box"
+              type="email"
               value={email}
-              onChange={({ target }) => {
-                setEmail(target.value);
-              }}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-
-            <PasswordInput
+          </div>
+          <div className="space-y-2">
+            <label className="block text-sm font-medium text-gray-700">
+              Password
+            </label>
+            <input
+              type="password"
               value={password}
-              onChange={({ target }) => {
-                setPassword(target.value);
-              }}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
-
-            {error && <p className="text-red-500 text-xs pb-1">{error}</p>}
-
-            <button type="submit" className="btn-primary">
-              LOGIN
-            </button>
-
-            <p className="text-xs text-slate-500 text-center my-4">Or</p>
-
-            <button
-              type="submit"
-              className="btn-primary btn-light"
-              onClick={() => {
-                navigate("/signup");
-              }}
-            >
-              CREATE ACCOUNT
-            </button>
-          </form>
-        </div>
+          </div>
+          <button
+            type="submit"
+            className="w-full bg-cyan-500 text-white py-2 px-4 rounded-md hover:bg-cyan-800 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+          >
+            Login
+          </button>
+        </form>
       </div>
     </div>
   );
