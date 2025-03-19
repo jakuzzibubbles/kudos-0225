@@ -1,54 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
-
-const StarRating = ({ rating, onRatingChange }) => {
-  const stars = [1, 2, 3, 4, 5];
-
-  return (
-    <div className="flex space-x-2">
-      {stars.map((star) => (
-        <button
-          key={star}
-          type="button"
-          onClick={() => onRatingChange(star)}
-          className={`text-2xl focus:outline-none ${
-            star <= rating ? "text-yellow-500" : "text-gray-300"
-          }`}
-        >
-          ★
-        </button>
-      ))}
-    </div>
-  );
-};
+import FormInput from "./components/FormInput";
+import StarRating from "./components/StarRating";
+import FormSection from "./components/FormSection";
+import useFormData from "./hooks/useFormData";
 
 function App() {
-  const [formData, setFormData] = useState({
-    name: "",
-    jobTitle: "",
-    company: "",
-    workFrom: "",
-    workTo: "",
-    connectionType: "",
-    skills: 0,
-    availability: 0,
-    communication: 0,
-    quality: 0,
-    deadlines: 0,
-    cooperation: 0,
-    comments: "",
-  });
-
+  const { formData, handleChange, handleRatingChange } = useFormData();
   const [finalRating, setFinalRating] = useState(null);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleRatingChange = (category, value) => {
-    setFormData({ ...formData, [category]: value });
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -87,13 +46,7 @@ function App() {
     }
 
     const total =
-      parseInt(skills) +
-      parseInt(availability) +
-      parseInt(communication) +
-      parseInt(quality) +
-      parseInt(deadlines) +
-      parseInt(cooperation);
-
+      skills + availability + communication + quality + deadlines + cooperation;
     const average = total / 6;
     return `${average.toFixed(1)}/5`;
   };
@@ -106,48 +59,31 @@ function App() {
           onSubmit={handleSubmit}
           className="grid grid-cols-1 md:grid-cols-2 gap-8"
         >
-          <div className="space-y-6">
-            <h2 className="text-xl font-semibold">Who are you to judge?</h2>
-            <div className="space-y-2">
-              <label className="block text-sm font-medium text-gray-700">
-                What's your full name?
-              </label>
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-            <div className="space-y-2">
-              <label className="block text-sm font-medium text-gray-700">
-                What's your role?
-              </label>
-              <input
-                type="text"
-                name="jobTitle"
-                value={formData.jobTitle}
-                onChange={handleChange}
-                required
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-            <div className="space-y-2">
-              <label className="block text-sm font-medium text-gray-700">
-                Which organization should take credit (or blame) for your
-                expertise?
-              </label>
-              <input
-                type="text"
-                name="company"
-                value={formData.company}
-                onChange={handleChange}
-                required
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
+          <FormSection title="Who are you to judge?">
+            <FormInput
+              label="What's your full name?"
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+            <FormInput
+              label="What's your role?"
+              type="text"
+              name="jobTitle"
+              value={formData.jobTitle}
+              onChange={handleChange}
+              required
+            />
+            <FormInput
+              label="Which organization should take credit (or blame) for your expertise?"
+              type="text"
+              name="company"
+              value={formData.company}
+              onChange={handleChange}
+              required
+            />
             <div className="space-y-2">
               <label className="block text-sm font-medium text-gray-700">
                 When did you work together?
@@ -189,38 +125,32 @@ function App() {
                 <option value="Other">Other</option>
               </select>
             </div>
-          </div>
+          </FormSection>
 
-          <div className="space-y-6">
-            <h2 className="text-xl font-semibold">
-              How many stars would you give them before HR gets involved?
-            </h2>
-            <div className="grid grid-cols-1 gap-4">
-              {[
-                "skills",
-                "availability",
-                "communication",
-                "quality",
-                "deadlines",
-                "cooperation",
-              ].map((category) => (
-                <div
-                  key={category}
-                  className="grid grid-cols-2 items-center gap-4"
-                >
-                  <label className="text-sm font-medium text-gray-700">
-                    {category.charAt(0).toUpperCase() + category.slice(1)}:
-                  </label>
-                  <StarRating
-                    rating={formData[category]}
-                    onRatingChange={(value) =>
-                      handleRatingChange(category, value)
-                    }
-                  />
-                </div>
-              ))}
-            </div>
-
+          <FormSection title="How many stars would you give them before HR gets involved?">
+            {[
+              "skills",
+              "availability",
+              "communication",
+              "quality",
+              "deadlines",
+              "cooperation",
+            ].map((category) => (
+              <div
+                key={category}
+                className="grid grid-cols-2 items-center gap-4"
+              >
+                <label className="text-sm font-medium text-gray-700">
+                  {category.charAt(0).toUpperCase() + category.slice(1)}:
+                </label>
+                <StarRating
+                  rating={formData[category]}
+                  onRatingChange={(value) =>
+                    handleRatingChange(category, value)
+                  }
+                />
+              </div>
+            ))}
             <div className="grid grid-cols-2 gap-4">
               <label className="text-sm font-medium text-gray-700">
                 Final rating:
@@ -230,10 +160,8 @@ function App() {
                 value={calculateRatingSum()}
                 readOnly
                 className="w-full px-3 py-2"
-                
               />
             </div>
-
             <div className="space-y-2">
               <label className="block text-sm font-medium text-gray-700">
                 Got anything extra to add? Spill the tea 🍰
@@ -245,7 +173,7 @@ function App() {
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
-          </div>
+          </FormSection>
 
           <div className="col-span-full flex justify-center">
             <button
