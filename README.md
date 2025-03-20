@@ -85,14 +85,14 @@ The goal is to set up a functional and maintainable deployment pipeline while le
 
 2. **User Authentication**
    - [ ] Implement user login and account creation.
-   - [ ] Redirect users to the dashboard after logging in.
+   - [x] Redirect users to the dashboard after logging in.
 
 3. **Dashboard**
    - [ ] Display received reviews to users.
    - [ ] Allow users to send reviews to employers.
 
 4. **Axios for API requests**
-   - [ ] Handle errors and display alerts to the user.
+   - [x] Handle errors and display alerts to the user.
 
 ## Deployment
 - [ ] Use AWS for hosting and infrastructure.
