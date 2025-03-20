@@ -16,7 +16,8 @@ Jenkins and GitHub Actions for CI/CD: CI/CD pipelines are being set up for autom
 Kubernetes for orchestration: Kubernetes is being explored to manage containers and automate deployment.
 
 The goal is to set up a functional and maintainable deployment pipeline while learning best practices along the way.
----
+
+
 ## Table of contents
 1. [How the Code Works](#how-the-code-works)
 2. [Key Components](#key-components)
