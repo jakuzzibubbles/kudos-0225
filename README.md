@@ -1,13 +1,28 @@
-# Kudos - frontend documentation
-This repository contains the frontend code for Kudos, an review app built with the MERN stack. The frontend (React, Vite, and Tailwind CSS) allows users to submit reviews with ratings across six categories. The backend (Node.js, Express, and MongoDB) handles the storage and retrieval of reviews. More features along the way 🙂
+# Kudos🙂
+Introduction
+
+Kudos is a full-stack web application designed to facilitate peer reviews and ratings for employees and freelancers. The project serves as a foundational learning experience for implementing DevOps practices while developing a functional web application.
+
+Deployment & DevOps
+
+The deployment setup is still in progress and follows standard DevOps practices:
+
+AWS for hosting and infrastructure: The application is planned to be deployed on AWS for scalability.
+
+Docker for containerization: The frontend and backend services are containerized using Docker to ensure consistency across environments.
+
+Jenkins and GitHub Actions for CI/CD: CI/CD pipelines are being set up for automated testing and deployment.
+
+Kubernetes for orchestration: Kubernetes is being explored to manage containers and automate deployment.
+
+The goal is to set up a functional and maintainable deployment pipeline while learning best practices along the way.
 ---
 ## Table of contents
 1. [How the Code Works](#how-the-code-works)
 2. [Key Components](#key-components)
-3. [Deployment on Vercel](#deployment-on-vercel)
-4. [Folder Structure](#folder-structure)
-5. [Contributing](#contributing)
-6. [Technologies](#technologies)
+3. [Folder Structure](#folder-structure)
+4. [Contributing](#contributing)
+5. [Technologies](#technologies)
 ---
 ## How the code works
 ### 1. **Form submission**
