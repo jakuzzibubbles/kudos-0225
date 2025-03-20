@@ -78,9 +78,11 @@ This repository contains the frontend code for Kudos, an review app built with t
 4. **Axios for API requests**
    - [ ] Handle errors and display alerts to the user.
 
-5. **Deployment on Vercel**
-   - [ ] Install Vercel CLI.
-   - [ ] Deploy the app using Vercel.
+## Deployment
+- [ ] Use AWS for hosting and infrastructure.
+- [ ] Use Docker for containerization.
+- [ ] Use Jenkins and GitHub Actions for CI/CD.
+- [ ] Use Kubernetes for orchestration.
 ---
 ## Folder structure
 ```
@@ -97,16 +99,26 @@ frontend/
 │   │   ├── useFormData.js
 │   ├── pages/
 │   │   ├── Auth/
-│   │   │   ├── Home/
-│   │   │   │   ├── Dashboard.jsx
-│   │   │   ├── Login.jsx
+│   │   |   │── Login.jsx
+│   │   ├── Home/
+│   │   │   ├── Dashboard.jsx
 │   ├── App.jsx 
 │   ├── main.jsx    
-│   ├── index.css     
-├── .gitignore        
-├── [package.json](http://_vscodecontentref_/1)     
-├── [vite.config.js](http://_vscodecontentref_/2)    
-├── [README.md](http://_vscodecontentref_/3)         
+│   ├── index.css            
+├── package.json     
+├── vite.config.js           
+backend/
+├── controllers/
+│   └── reviewController.js
+├── models/
+│   └── Review.js
+├── routes/
+│   └── reviewRoutes.js
+├── .env
+├── server.js
+├── package.json
+.gitignore
+README.md 
 ```
 ---
 ## Contributing
@@ -119,4 +131,11 @@ Contributions are welcome! If you’re new to coding like me, let's collaborate�
 - [Vite](https://vitejs.dev/) for the fast development setup.
 - [Tailwind CSS](https://tailwindcss.com/) for the utility-first CSS framework.
 - [React](https://reactjs.org/) for the frontend library.
-- [Vercel](https://vercel.com/) for seamless deployment.
+- [Node.js](https://nodejs.org/) for the backend runtime.
+- [Express](https://expressjs.com/) for the backend framework.
+- [MongoDB](https://www.mongodb.com/) for the database.
+- [AWS](https://aws.amazon.com/) for hosting and infrastructure.
+- [Docker](https://www.docker.com/) for containerization.
+- [Jenkins](https://www.jenkins.io/) and [GitHub Actions](https://github.com/features/actions) for CI/CD.
+- [Kubernetes](https://kubernetes.io/) for orchestration.
+---
