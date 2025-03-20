@@ -30,16 +30,16 @@ The goal is to set up a functional and maintainable deployment pipeline while le
 - [x] The frontend collects user input through a form with six rating categories (skills, availability, communication, quality, deadlines, cooperation) and a comments section.
 - [ ] When the form is submitted, the data is sent to the backend via an API request using **Axios**.
 ### 2. **Final rating calculation**
-- [ ] The backend stores the final rating in MongoDb.
+- [x] The backend stores the final rating in MongoDb.
 - [x] The frontend displays the final rating to the user after a successful submission.
 ### 3. **Styling with Tailwind CSS**
 - [x] The app uses **Tailwind CSS** for styling, which provides utility classes for rapid UI development.
 - [ ] Components are styled directly in the JSX using Tailwind classes, making the code clean and easy to maintain.
 ### 4. **User Authentication**
 - [ ] Users can log in or create an account.
-- [ ] After logging in, users are redirected to the dashboard.
+- [x] After logging in, users are redirected to the dashboard.
 ### 5. **Dashboard**
-- [ ] Users can see their received reviews.
+- [x] Users can see their received reviews.
 - [ ] Users can send reviews to employers.
 ---
 ## Key components
