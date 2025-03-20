@@ -1,5 +1,5 @@
 # Kudos - frontend documentation
-This repository contains the frontend code for Kudos, an review app built with the MERN stack. The frontend (React, Vite, and Tailwind CSS) allows users to submit reviews with ratings     across six categories. More features along the way 🙂
+This repository contains the frontend code for Kudos, an review app built with the MERN stack. The frontend (React, Vite, and Tailwind CSS) allows users to submit reviews with ratings across six categories. The backend (Node.js, Express, and MongoDB) handles the storage and retrieval of reviews. More features along the way 🙂
 ---
 ## Table of contents
 1. [How the Code Works](#how-the-code-works)
@@ -52,15 +52,36 @@ This repository contains the frontend code for Kudos, an review app built with t
 - [ ] Used to send form data to the backend and receive the final rating.
 - [ ] Handles errors and displays alerts to the user.
 ---
-## Deployment on Vercel
-- [ ] Install Vercel CLI**
-  ```bash
-  npm install -g vercel
-  ```
-- [ ] Deploy the app**
-  ```bash
-  vercel
-  ```
+## Backend setup
+### 1. **Server setup (`backend/server.js`)**
+- [x] Sets up the Express server and connects to MongoDB.
+### 2. **Review model (`backend/models/Review.js`)**
+- [x] Defines the schema for storing reviews in MongoDB.
+### 3. **Review controller (`backend/controllers/reviewController.js`)**
+- [x] Handles the logic for retrieving and creating reviews.
+### 4. **Review routes (`backend/routes/reviewRoutes.js`)**
+- [x] Defines the API endpoints for reviews.
+
+### Tasks that still need to be done:
+1. **Styling with Tailwind CSS**
+   - [ ] Ensure components are styled directly in the JSX using Tailwind classes, making the code clean and easy to maintain.
+   - [ ] Ensure consistent and responsive design across devices.
+
+2. **User Authentication**
+   - [ ] Implement user login and account creation.
+   - [ ] Redirect users to the dashboard after logging in.
+
+3. **Dashboard**
+   - [ ] Display received reviews to users.
+   - [ ] Allow users to send reviews to employers.
+
+4. **Axios for API requests**
+   - [ ] Handle errors and display alerts to the user.
+
+5. **Deployment on Vercel**
+   - [ ] Install Vercel CLI.
+   - [ ] Deploy the app using Vercel.
+---
 ## Folder structure
 ```
 frontend/
