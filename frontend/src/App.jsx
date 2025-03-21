@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Dashboard from './pages/Home/Dashboard';
 import Login from './pages/Auth/Login.jsx';
+import Register from './pages/Auth/Register.jsx';
 
 
 function App() {
